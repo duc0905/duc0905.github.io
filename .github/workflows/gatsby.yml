@@ -77,6 +77,8 @@ jobs:
       - name: Build with Gatsby
         env:
           PREFIX_PATHS: 'true'
+          NOTION_API_KEY: ${{ secrets.NOTION_API_KEY }}
+          NOTION_CONTENT_DB: ${{ secrets.NOTION_CONTENT_DB }}
         run: ${{ steps.detect-package-manager.outputs.manager }} run build
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
